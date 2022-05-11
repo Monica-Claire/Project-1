@@ -3,21 +3,89 @@
 <head>
     <title>Do I Need A Mask?</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1">
     <link rel="stylesheet" href="assets\css\style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
-    <h1 class="title" style="display: flex;">Do I Need A Mask?</h1>
-    <h2 class="subtitle">Enter State Here</h2>
-    <div style="display: flex;" class="bulma-ltr-rtl-mixin">
-        <button class="button is-primary">Search</button>
-    </div>
+    <hero class="hero is-medium is-link">
+        <div class="hero-body">
+            <h1 class="title">Do I Need A Mask?</h1>
+        </div>
+    </hero>
 
-    <div style="display: flex;" class="bulma-ltr-rtl-mixin">
-        <h1>Output</h1>
-        <input class="input bulma-placeholder-mixin" type="text" placeholder="Answer to your question here">
-    </div>
+    <section class="section">
+        <form class="control">
+            <div class="select">
+            <select>
+                <option>Select state</option>
+                <option id="alabama">Alabama</option>
+                <option id="alaska">Alaska</option>
+                <option id="arizona">Arizona</option>
+                <option id="arkansas">Arkansas</option>
+                <option id="california">California</option>
+                <option id="colorado">Colorado</option>
+                <option id="connecticut">Connecticut</option>
+                <option id="delaware">Delaware</option>
+                <option id="florida">Florida</option>
+                <option id="georgia">Georgia</option>
+                <option id="hawaii">Hawaii</option>
+                <option id="idaho">Idaho</option>
+                <option id="illinois">Illinois</option>
+                <option id="indiana">Indiana</option>
+                <option id="iowa">Iowa</option>
+                <option id="kansas">Kansas</option>
+                <option id="kentucky">Kentucky</option>
+                <option id="louisiana">Louisiana</option>
+                <option id="maine">Maine</option>
+                <option id="maryland">Maryland</option>
+                <option id="massachusetts">Massachusetts</option>
+                <option id="michigan">Michigan</option>
+                <option id="minnesota">Minnesota</option>
+                <option id="mississippi">Mississippi</option>
+                <option id="missouri">Missouri</option>
+                <option id="montana">Montana</option>
+                <option id="nebraska">Nebraska</option>
+                <option id="nevada">Nevada</option>
+                <option id="newHamshire">New Hamshire</option>
+                <option id="newJersey">New Jersey</option>
+                <option id="newMexico">New Mexico</option>
+                <option id="newYork">New York</option>
+                <option id="northCarolina">North Carolina</option>
+                <option id="northDakota">North Dakota</option>
+                <option id="ohio">Ohio</option>
+                <option id="oklahoma">Oklahoma</option>
+                <option id="oregon">Oregon</option>
+                <option id="pennsylvania">Pennsylvania</option>
+                <option id="rhodeIsland">Rhode Island</option>
+                <option id="southCarolina">South Carolina</option>
+                <option id="southDakota">South Dakota</option>
+                <option id="tennessee">Tennessee</option>
+                <option id="texas">Texas</option>
+                <option id="utah">Utah</option>
+                <option id="vermont">Vermont</option>
+                <option id="virginia">Virginia</option>
+                <option id="washington">Washington</option>
+                <option id="westVirginia">West Virginia</option>
+                <option id="wisconsis">Wisconsin</option>
+                <option id="wyoming">Wyoming</option>
+            </select>
+            </div>
+         <button class="button is-primary">Search</button>
+        </form>
+    </section>
+    
+    <section class="section">
+        <main class="container is-fluid, block, bulma-ltr-rtl-mixin">
+         <h2 class="subtitle">Output</h1>
+        </main>
+    </section>
+
+    </section class="section">
+        <article class="container is-fluid, block, bulma-ltr-rtl-mixin">
+         <h2 class="subtitle">Statistics</h2>
+        </article>
+    </section>
+
     <script src="assets\js\script.js"></script>
 </body>
 </html>
