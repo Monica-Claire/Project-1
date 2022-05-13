@@ -14,84 +14,92 @@
         </div>
     </hero>
 
-            <div class="tile is-ancestor">
-                <div class="is-4 is-parent is-vertical box">
-                <section class="section">
-                    <section class="section">
-                        <form class="control">
-                            <div class="select">
-                            <select>
-                                <option>Select state</option>
-                                <option id="AL">AL</option>
-                                <option id="AK">AK</option>
-                                <option id="AZ">AZ</option>
-                                <option id="AR">AR</option>
-                                <option id="CA">CA</option>
-                                <option id="CO">CO</option>
-                                <option id="CT">CT</option>
-                                <option id="DE">DE</option>
-                                <option id="FL">FL</option>
-                                <option id="GA">GA</option>
-                                <option id="HI">HI</option>
-                                <option id="ID">ID</option>
-                                <option id="IL">IL</option>
-                                <option id="IN">IN</option>
-                                <option id="IA">IA</option>
-                                <option id="KS">KS</option>
-                                <option id="KY">KY</option>
-                                <option id="LA">LA</option>
-                                <option id="ME">ME</option>
-                                <option id="MD">MD</option>
-                                <option id="MA">MA</option>
-                                <option id="MI">MI</option>
-                                <option id="MN">MN</option>
-                                <option id="MS">MS</option>
-                                <option id="MO">MO</option>
-                                <option id="MT">MT</option>
-                                <option id="NE">NE</option>
-                                <option id="NV">NV</option>
-                                <option id="NH">NH</option>
-                                <option id="NJ">NJ</option>
-                                <option id="NM">NM</option>
-                                <option id="NY">NY</option>
-                                <option id="NC">NC</option>
-                                <option id="ND">ND</option>
-                                <option id="OH">OH</option>
-                                <option id="OK">OK</option>
-                                <option id="OR">OR</option>
-                                <option id="PA">PA</option>
-                                <option id="RI">RI</option>
-                                <option id="SC">SC</option>
-                                <option id="SD">SD</option>
-                                <option id="TN">TN</option>
-                                <option id="TX">TX</option>
-                                <option id="UT">UT</option>
-                                <option id="VT">VT</option>
-                                <option id="VA">VA</option>
-                                <option id="WA">WA</option>
-                                <option id="WV">WV</option>
-                                <option id="WI">WI</option>
-                                <option id="WY">WY</option>
-                            </select>
-                            </div>
-                         <button class="button is-primary">Search</button>
-                        </form>
-                    </section>
-                </div>
-                <div class="tile is-4 is-child is-vertical box">
-                    <main>
-                    <h2 class="subtitle">Answer</h1>
-                        <div id="output"></div>
-                    </main>
-                </div>
-                <div class="tile is-4 is-child is-vertical box">
-                    <article class="container is-fluid, block, bulma-ltr-rtl-mixin">
-                    <h2 class="subtitle">Additional Info Here</h2>
-                    <img src="\assets\images\masks.jpg"/>
-                    </article>
-                </div>
+    <section class="section">
+        <h2 class="title">Search Here</h2>
+        <form class="control">
+            <div class="input" type="text" placeholder="Enter City">Enter City</div>
+            <div class="select">
+            <select>
+                <option>Select state</option>
+                <option id="AL">Alabama</option>
+                <option id="AK">Alaska</option>
+                <option id="AZ">Arizona</option>
+                <option id="AR">Arkansas</option>
+                <option id="CA">California</option>
+                <option id="CO">Colorado</option>
+                <option id="CT">Connecticut</option>
+                <option id="DE">Delaware</option>
+                <option id="FL">Florida</option>
+                <option id="GA">Georgia</option>
+                <option id="HI">Hawaii</option>
+                <option id="ID">Idaho</option>
+                <option id="IL">Illinois</option>
+                <option id="IN">Indiana</option>
+                <option id="IA">Iowa</option>
+                <option id="KS">Kansas</option>
+                <option id="KY">Kentucky</option>
+                <option id="LA">Louisiana</option>
+                <option id="ME">Maine</option>
+                <option id="MD">Maryland</option>
+                <option id="MA">Massachusetts</option>
+                <option id="MI">Michigan</option>
+                <option id="MN">Minnesota</option>
+                <option id="MS">Mississippi</option>
+                <option id="MO">Missouri</option>
+                <option id="MT">Montana</option>
+                <option id="NE">Nebraska</option>
+                <option id="NV">Nevada</option>
+                <option id="NH">New Hamshire</option>
+                <option id="NJ">New Jersey</option>
+                <option id="NM">New Mexico</option>
+                <option id="NY">New York</option>
+                <option id="NC">North Carolina</option>
+                <option id="ND">North Dakota</option>
+                <option id="OH">Ohio</option>
+                <option id="OK">Oklahoma</option>
+                <option id="OR">Oregon</option>
+                <option id="PA">Pennsylvania</option>
+                <option id="RI">Rhode Island</option>
+                <option id="SC">South Carolina</option>
+                <option id="SD">South Dakota</option>
+                <option id="TN">Tennessee</option>
+                <option id="TX">Texas</option>
+                <option id="UT">Utah</option>
+                <option id="VT">Vermont</option>
+                <option id="VA">Virginia</option>
+                <option id="WA">Washington</option>
+                <option id="WV">West Virginia</option>
+                <option id="WI">Wisconsin</option>
+                <option id="WY">Wyoming</option>
+            </select>
             </div>
-        </section>
+         <button class="button is-primary">Search</button>
+        </form>
+    </section>
+    </section>
+
+    <section class="section">
+        <h2 class="title">Answer Here</h2>
+        <div>
+<!--Add Answer from JS here-->
+        </div>
+    </section>
+
+    <section class="section">
+        <h3 class="subtitle">Additional Info</h3>
+        <img src="\assets\images\masks.jpg"/>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class="content has-text-centered">
+                <p>Created by Isaiah, Monica & Nadya</p><br>
+                <p>2022</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="assets\js\script.js"></script>
 </body>
 </html>
+
