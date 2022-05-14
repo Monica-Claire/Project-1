@@ -50,3 +50,4 @@ var getNewcases = function(city, province) {
 
 getNewcases();
 getPollen();
+
