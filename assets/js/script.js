@@ -1,3 +1,22 @@
+var cityInput = document.querySelector('#cityInput');
+var provinceInput = document.querySelector('#provinceInput');
+var button = document.querySelector('#button');
+
+var formSearchHandler = function(event) {
+    // prevent page from refreshing
+    event.preventDefault();
+    var city = cityInput.value.trim();
+	var province = provinceInput.value.trim();
+    console.log(city);
+	console.log(province);
+  
+    if (city, province) {
+      // clear old content
+      searchInputEl.value = "";
+    } else {
+      alert("Please enter a city");
+    }
+  };
 
 var getNewcases = function(city, province) {
 	const options = {
@@ -48,5 +67,6 @@ var getNewcases = function(city, province) {
 	});
 };
 
-getNewcases();
-getPollen();
+
+
+button.addEventListener("click", formSearchHandler);
