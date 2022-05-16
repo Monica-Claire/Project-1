@@ -30,12 +30,16 @@ var getNewcases = function (province) {
           console.log(activeCases);
           console.log(todaysCases);
           if (activeCases < 5000) {
+            document.querySelector("#response").innerHTML =
+              "Active cases are less than 5,000 for selcted state. No mask required.";
             console.log(
               "Active cases are less than 5,000 for selcted state. No mask required."
             );
           } else if (activeCases > 5000) {
+            document.querySelector("#response").innerHTML =
+              "Active cases are more than 5,000 for selected state. Wearing a mask is recomended.";
             console.log(
-              "Active cases are more than 5,000 for selected state. Wearing a mask is reccomended."
+              "Active cases are more than 5,000 for selected state. Wearing a mask is recomended."
             );
           }
           document.querySelector("#Cases").innerHTML =
