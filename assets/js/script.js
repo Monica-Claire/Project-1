@@ -2,6 +2,7 @@
 var cityInput = document.querySelector('#cityInput');
 var provinceInput = document.querySelector('#provinceInput');
 var button = document.querySelector('#button');
+var key = "827872d8b7d2aff6bb0c70ca4245ef14";
 
 var formSearchHandler = function(event) {
     // prevent page from refreshing
@@ -11,10 +12,11 @@ var formSearchHandler = function(event) {
     console.log(city);
 	console.log(province);
 	getNewcases(province);
+	getCoordinates(city);
     if (city, province) {
 	
       // clear old content
-      searchInputEl.value = "";
+     cityInput.value = "";
     } else {
       alert("Please enter a city");
     }
@@ -36,34 +38,52 @@ var getNewcases = function(province) {
 		} else {
 		  alert("Error: " + response.statusText);
 		}
+	})
+	.catch(function(error) {
+	  alert("Unable to connect to server");
 	  });
 	};
-  
-	var getPollen = function(city) {
-		fetch("https://api.ambeedata.com/latest/pollen/by-place?place=" + city, {
-	"method": "GET",
-	"headers": {
-		"x-api-key": "0040ab3d6bc0a15df3ee65425992bc72c7d5b5b600f7f804956943e58ad7e35f",
-		"Content-type": "application/json"
-	}
-})
+
+var getCoordinates = function(city) {
+    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + key;
+    fetch(apiUrl)
+      .then(function(response) {
+        // request was successful
+        if (response.ok) {
+          console.log(response);
+          response.json().then(function(data) {
+              var cityLat = data[0].lat;
+              var cityLon = data[0].lon;
+              console.log(cityLat);
+              console.log(cityLon);
+              getPollution(cityLat, cityLon);
+          });
+        } else {
+          alert("Error: " + response.statusText);
+        }
+      })
+      .catch(function(error) {
+        alert("Unable to connect to OpenWeather");
+      });
+  };
+
+  var getPollution = function(cityLat, cityLon) {
+		fetch("https://api.openweathermap.org/data/2.5/air_pollution?lat=" + cityLat + "&lon=" + cityLon + "&appid=" + key)
 .then(function(response) {
 	  // request was successful
 	  if (response.ok) {
         response.json().then(function(data) {
-		  var riskGrass = data.data[0].Risk.grass_pollen;
-		  console.log(riskGrass);
-		  var riskTree = data.data[0].Risk.tree_pollen;
-		  console.log(riskTree);
-		  var riskWeed = data.data[0].Risk.weed_pollen;
-		  console.log(riskWeed);
-
+		 console.log(data);
+		 var airQualityIndex = data.list[0].main.aqi;
+		 console.log(airQualityIndex);
 		});
 	  } else {
 		alert("Error: " + response.statusText);
 	  }
+	})
+	.catch(function(error) {
+	  alert("Unable to connect to OpenWeather");
 	});
 };
-
 
 button.addEventListener("click", formSearchHandler);
