@@ -1,6 +1,8 @@
 var cityInput = document.querySelector("#cityInput");
 var provinceInput = document.querySelector("#provinceInput");
 var button = document.querySelector("#button");
+const str = (1234567890).toLocaleString();
+console.log(str);
 
 var formSearchHandler = function (event) {
   // prevent page from refreshing
@@ -42,13 +44,21 @@ var getNewcases = function (province) {
               "Active cases are more than 5,000 for selected state. Wearing a mask is recomended."
             );
           }
+
           document.querySelector("#Cases").innerHTML =
             "Current active cases for " + province + ": " + activeCases;
           document.querySelector("#todays-cases").innerHTML =
             "New cases reported today for " + province + ": " + todaysCases;
+          if (todaysCases == 0) {
+            document.querySelector("#todays-cases").innerHTML =
+              "New cases reported today for " +
+              province +
+              ": " +
+              todaysCases +
+              ". " +
+              "New cases update at various times throughout the day for each state. This might reflect as '0' until states have updated cases.";
+          }
         });
-      } else if (activeCases < 100) {
-        console.log("Cases are less then 1000, no need for a mask");
       } else {
         alert("Error: " + response.statusText);
       }
