@@ -1,6 +1,8 @@
 var cityInput = document.querySelector("#cityInput");
 var provinceInput = document.querySelector("#provinceInput");
 var button = document.querySelector("#button");
+const str = (1234567890).toLocaleString();
+console.log(str);
 
 var formSearchHandler = function (event) {
   // prevent page from refreshing
@@ -29,27 +31,48 @@ var getWearMask = function (province) {
           var todaysCases = data.todayCases;
           console.log(activeCases);
           console.log(todaysCases);
+          if (activeCases < 5000) {
+            document.querySelector("#response").innerHTML =
+              "Active cases are less than 5,000 for selcted state. No mask required.";
+            console.log(
+              "Active cases are less than 5,000 for selcted state. No mask required."
+            );
+          } else if (activeCases > 5000) {
+            document.querySelector("#response").innerHTML =
+              "Active cases are more than 5,000 for selected state. Wearing a mask is recomended.";
+            console.log(
+              "Active cases are more than 5,000 for selected state. Wearing a mask is recomended."
+            );
+          }
+
           document.querySelector("#Cases").innerHTML =
             "Current active cases for " + province + ": " + activeCases;
           document.querySelector("#todays-cases").innerHTML =
             "New cases reported today for " + province + ": " + todaysCases;
-          document.getElementById("#Cases").style.fontStyle = "italic";
+          if (todaysCases == 0) {
+            document.querySelector("#todays-cases").innerHTML =
+              "New cases reported today for " +
+              province +
+              ": " +
+              todaysCases +
+              ". " +
+              "New cases update at various times throughout the day for each state. This might reflect as '0' until states have updated cases.";
+          }
         });
       } else {
         alert("Error: " + response.statusText);
       }
-      var displayWarning = function (data) {
-        moreInfoEl.textContent =
-          "For more information, provided by the CDC, visit";
-        var infoEl = document.createElement("a");
-        infoEl.textContent = "See more information at CDC.gov";
-        infoEl.setAttribute("href", "https://CDC.gov/");
-        infoEl.setAttribute("target", "_blank");
-
-        moreInfoEl.appendChild(infoEl);
-      };
     }
   );
+};
+
+var displayCases = function () {
+  casesWarningEl.textContent = "For more information, please visit: ";
+
+  var casesEl = document.createElement("a");
+  casesEl.textContent = "CDC.gov";
+  casesEl.setAttribute("href", "https://cdc.gov");
+  casesEl.setAttribute("target", "_blank");
 };
 
 var getPollen = function (city) {
@@ -82,6 +105,19 @@ var getPollen = function (city) {
     }
   });
 };
+
+//modal
+var searchButton = document.querySelector("#button");
+var modalBg = document.querySelector(".modal-background");
+var modal = document.querySelector(".modal");
+
+searchButton.addEventListener("click", () => {
+  modal.classList.add("is-active");
+});
+
+modalBg.addEventListener("click", () => {
+  modal.classList.remove("is-active");
+});
 
 button.addEventListener("click", formSearchHandler);
 
