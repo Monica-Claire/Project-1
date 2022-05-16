@@ -9,7 +9,7 @@ var formSearchHandler = function (event) {
   var province = provinceInput.value.trim();
   console.log(city);
   console.log(province);
-  getNewcases(province);
+  getWearMask(province);
   if ((city, province)) {
     // clear old content
     searchInputEl.value = "";
@@ -18,7 +18,7 @@ var formSearchHandler = function (event) {
   }
 };
 
-var getNewcases = function (province) {
+var getWearMask = function (province) {
   fetch("https://corona.lmao.ninja/v2/states/" + province + "?yesterday=").then(
     function (response) {
       // request was successful
@@ -66,10 +66,16 @@ var getPollen = function (city) {
       response.json().then(function (data) {
         var riskGrass = data.data[0].Risk.grass_pollen;
         console.log(riskGrass);
+		document.querySelector("#Grass").innerHTML =
+            "Current allergen risk from grass " + province + ": " + riskGrass;
         var riskTree = data.data[0].Risk.tree_pollen;
         console.log(riskTree);
+		document.querySelector("#Tree").innerHTML =
+            "Current allergen risk from trees " + province + ": " + riskGrass;
         var riskWeed = data.data[0].Risk.weed_pollen;
         console.log(riskWeed);
+		document.querySelector("#Weed").innerHTML =
+            "Current allergen risk from weeds " + province + ": " + riskGrass;
       });
     } else {
       alert("Error: " + response.statusText);
@@ -78,3 +84,17 @@ var getPollen = function (city) {
 };
 
 button.addEventListener("click", formSearchHandler);
+
+const activeCases = function (province) {
+	fetch("https://corona.lmao.ninja/v2/states/" + province + "?yesterday=").then(
+	  function (response) {
+		// request was successful
+		if (response.ok) {
+		  response.json().then(function (data.active) )}
+
+function wearMaskIndoors() {
+	if activeCases >= 10,000
+	alert("Wear a mask in crowded places")
+}
+
+wearMaskIndoors()
