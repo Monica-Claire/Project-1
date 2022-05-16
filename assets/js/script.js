@@ -29,27 +29,36 @@ var getNewcases = function (province) {
           var todaysCases = data.todayCases;
           console.log(activeCases);
           console.log(todaysCases);
+          if (activeCases < 5000) {
+            console.log(
+              "Active cases are less than 5,000 for selcted state. No mask required."
+            );
+          } else if (activeCases > 5000) {
+            console.log(
+              "Active cases are more than 5,000 for selected state. Wearing a mask is reccomended."
+            );
+          }
           document.querySelector("#Cases").innerHTML =
             "Current active cases for " + province + ": " + activeCases;
           document.querySelector("#todays-cases").innerHTML =
             "New cases reported today for " + province + ": " + todaysCases;
-          document.getElementById("#Cases").style.fontStyle = "italic";
         });
+      } else if (activeCases < 100) {
+        console.log("Cases are less then 1000, no need for a mask");
       } else {
         alert("Error: " + response.statusText);
       }
-      var displayWarning = function (data) {
-        moreInfoEl.textContent =
-          "For more information, provided by the CDC, visit";
-        var infoEl = document.createElement("a");
-        infoEl.textContent = "See more information at CDC.gov";
-        infoEl.setAttribute("href", "https://CDC.gov/");
-        infoEl.setAttribute("target", "_blank");
-
-        moreInfoEl.appendChild(infoEl);
-      };
     }
   );
+};
+
+var displayCases = function () {
+  casesWarningEl.textContent = "For more information, please visit: ";
+
+  var casesEl = document.createElement("a");
+  casesEl.textContent = "CDC.gov";
+  casesEl.setAttribute("href", "https://cdc.gov");
+  casesEl.setAttribute("target", "_blank");
 };
 
 var getPollen = function (city) {
@@ -76,5 +85,18 @@ var getPollen = function (city) {
     }
   });
 };
+
+//modal
+var searchButton = document.querySelector("#button");
+var modalBg = document.querySelector(".modal-background");
+var modal = document.querySelector(".modal");
+
+searchButton.addEventListener("click", () => {
+  modal.classList.add("is-active");
+});
+
+modalBg.addEventListener("click", () => {
+  modal.classList.remove("is-active");
+});
 
 button.addEventListener("click", formSearchHandler);
