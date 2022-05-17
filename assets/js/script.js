@@ -80,25 +80,24 @@ var getNewcases = function(province) {
 	};
 
 var getCoordinates = function(city) {
-    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "," + stateId + ",USA&limit=1&appid=" + key;
+    // var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + key;
+	var apiUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${city},US&appid=${key}`
     fetch(apiUrl)
       .then(function(response) {
         // request was successful
-        if (response.ok) {
-          console.log(response);
-		  //console.log(data);
-          response.json().then(function(data) {
-              var cityLat = data[0].lat;
-              var cityLon = data[0].lon;
+          return response.json()
+	  })//console.log(data);
+          .then(function(data) {
+			console.log(stateId)  
+			console.log(data);
+              var cityLat = data.coord.lat;
+              var cityLon = data.coord.lon;
               console.log(cityLat);
               console.log(cityLon);
               getPollution(cityLat, cityLon);
-          });
-        } else {
-          alert("Error: " + response.statusText);
-        }
-      })
+          })
       .catch(function(error) {
+		console.error(error)
         alert("Unable to connect to OpenWeather");
       });
   };
