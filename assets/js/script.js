@@ -103,6 +103,8 @@ var getCoordinates = function(city) {
       });
   };
 
+//key e94085e052392b6296e34ce275bbed6d
+
   var getPollution = function(cityLat, cityLon) {
 		fetch("https://api.openweathermap.org/data/2.5/air_pollution?lat=" + cityLat + "&lon=" + cityLon + "&appid=" + key)
 .then(function(response) {
