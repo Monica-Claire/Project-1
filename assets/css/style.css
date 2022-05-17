@@ -10,11 +10,23 @@
 }
 
 .active-style {
-  font-size: x-large;
+  font-size: large;
   color: blue;
 }
 
 .new-style {
-  font-size: x-large;
+  font-size: large;
   color:red ;
+}
+
+.sub-heading-style {
+  font-size: x-large;
+  color:black;
+}
+
+.heading-style{
+  font-size: xx-large;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 30px;
 }
