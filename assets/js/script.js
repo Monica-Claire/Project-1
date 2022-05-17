@@ -305,13 +305,9 @@ modalBg.addEventListener("click", () => {
   modal.classList.remove("is-active");
 });
 
-<<<<<<< HEAD
-button.addEventListener("click", formSearchHandler);
-=======
 closeButton.addEventListener("click", () => {
   modal.classList.remove("is-active");
 });
 
 button.addEventListener("click", formSearchHandler);
 
->>>>>>> 2f76b9d71b0e3cde5f921ad25f76c0a9bb84042d
