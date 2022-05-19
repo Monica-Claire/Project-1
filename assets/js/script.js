@@ -54,7 +54,7 @@ var getNewcases = function(province) {
 				  "Active cases are less than 5,000 for state " + province + " . No mask required.";
 			  } else if (activeCases > 5000) {
 				document.querySelector("#response").innerHTML =
-				  "Active cases are more than 5,000 for state " + province + " . Wearing a mask is recommended.";
+				  "Active cases are more than 5,000 for state " + province + " . Wearing a mask is recommended in large groups.";
 			  }
 			  document.querySelector("#Cases").innerHTML =
 				"Current active cases for " + province + ": " + activeCases;
@@ -119,19 +119,19 @@ var getCoordinates = function(city) {
 		 }
 		 else if (airQualityIndex == 2){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is fair. Wearing a mask is not recommended.";
+			"Air quality is fair. Wearing a mask outdoors is not recommended.";
 		 }
 		 else if (airQualityIndex == 3){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is moderate. Wearing a mask is recommended for sensitive groups of people.";
+			"Air quality is moderate. Wearing a mask outdoors is recommended for sensitive groups of people.";
 		 }
 		 else if (airQualityIndex == 4){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is poor. Wearing a mask is recommended.";
+			"Air quality is poor. Wearing a mask outdoors is recommended.";
 		 }
 		 else if (airQualityIndex == 5){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is very poor. Wearing a mask is strongly recommended.";
+			"Air quality is very poor. Wearing a mask outdoors is strongly recommended.";
 		 }
 		});
 	  } else {
