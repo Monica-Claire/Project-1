@@ -54,7 +54,7 @@ var getNewcases = function(province) {
 				  "Active cases are less than 5,000 for state " + province + " . No mask required.";
 			  } else if (activeCases > 5000) {
 				document.querySelector("#response").innerHTML =
-				  "Active cases are more than 5,000 for state " + province + " . Wearing a mask is recommended in large groups.";
+				  "Active cases are more than 5,000 for state " + province + " . Wearing a mask is recommended.";
 			  }
 			  document.querySelector("#Cases").innerHTML =
 				"Current active cases for " + province + ": " + activeCases;
@@ -80,29 +80,28 @@ var getNewcases = function(province) {
 	};
 
 var getCoordinates = function(city) {
-    // var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + key;
-	var apiUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${city},US&appid=${key}`
+    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "," + stateId + ",USA&limit=1&appid=" + key;
     fetch(apiUrl)
       .then(function(response) {
         // request was successful
-          return response.json()
-	  })//console.log(data);
-          .then(function(data) {
-			console.log(stateId)  
-			console.log(data);
-              var cityLat = data.coord.lat;
-              var cityLon = data.coord.lon;
+        if (response.ok) {
+          console.log(response);
+		  //console.log(data);
+          response.json().then(function(data) {
+              var cityLat = data[0].lat;
+              var cityLon = data[0].lon;
               console.log(cityLat);
               console.log(cityLon);
               getPollution(cityLat, cityLon);
-          })
+          });
+        } else {
+          alert("Error: " + response.statusText);
+        }
+      })
       .catch(function(error) {
-		console.error(error)
         alert("Unable to connect to OpenWeather");
       });
   };
-
-//key e94085e052392b6296e34ce275bbed6d
 
   var getPollution = function(cityLat, cityLon) {
 		fetch("https://api.openweathermap.org/data/2.5/air_pollution?lat=" + cityLat + "&lon=" + cityLon + "&appid=" + key)
@@ -119,19 +118,19 @@ var getCoordinates = function(city) {
 		 }
 		 else if (airQualityIndex == 2){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is fair. Wearing a mask outdoors is not recommended.";
+			"Air quality is fair. Wearing a mask is not recommended.";
 		 }
 		 else if (airQualityIndex == 3){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is moderate. Wearing a mask outdoors is recommended for sensitive groups of people.";
+			"Air quality is moderate. Wearing a mask is recommended for sensitive groups of people.";
 		 }
 		 else if (airQualityIndex == 4){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is poor. Wearing a mask outdoors is recommended.";
+			"Air quality is poor. Wearing a mask is recommended.";
 		 }
 		 else if (airQualityIndex == 5){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is very poor. Wearing a mask outdoors is strongly recommended.";
+			"Air quality is very poor. Wearing a mask is strongly recommended.";
 		 }
 		});
 	  } else {
@@ -309,4 +308,3 @@ closeButton.addEventListener("click", () => {
 });
 
 button.addEventListener("click", formSearchHandler);
-
