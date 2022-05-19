@@ -30,3 +30,8 @@
   color: black;
   margin-bottom: 30px;
 }
+
+.hero-body{
+  font-size: 3rem;
+  font: has-text-centered;
+}
