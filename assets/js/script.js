@@ -114,23 +114,23 @@ var getCoordinates = function(city) {
 		 console.log(airQualityIndex);
 		 if (airQualityIndex == 1){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is good. Wearing a mask is not recommended.";
+			"Air quality is good. Wearing a mask outside is not recommended.";
 		 }
 		 else if (airQualityIndex == 2){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is fair. Wearing a mask is not recommended.";
+			"Air quality is fair. Wearing a mask outside is not recommended.";
 		 }
 		 else if (airQualityIndex == 3){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is moderate. Wearing a mask is recommended for sensitive groups of people.";
+			"Air quality is moderate. Wearing a mask outside is recommended for sensitive groups of people.";
 		 }
 		 else if (airQualityIndex == 4){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is poor. Wearing a mask is recommended.";
+			"Air quality is poor. Wearing a mask outside is recommended.";
 		 }
 		 else if (airQualityIndex == 5){
 			document.querySelector("#air-1").innerHTML =
-			"Air quality is very poor. Wearing a mask is strongly recommended.";
+			"Air quality is very poor. Wearing a mask outside is strongly recommended.";
 		 }
 		});
 	  } else {
